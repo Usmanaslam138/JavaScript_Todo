@@ -1,0 +1,84 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+.container h2 {
+  color: orange;
+}
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+  width: 70%;
+}
+.container form input,
+.container form textarea {
+  background: #f4f4f4;
+  border-radius: 10px;
+  padding: 10px 5px;
+  color: black;
+  font-size: 20px;
+  border: 1px solid black;
+  outline: none;
+}
+.container form button {
+  background: linear-gradient(to right, #b15353, #f0cb35);
+  font-size: 20px;
+  padding: 15px 20px;
+  border-radius: 20px;
+  border: none;
+  margin: auto;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  width: 20%;
+}
+.container form button:hover {
+  background: linear-gradient(to right, #f0cb35, #b14646);
+}
+#task_container {
+  width: 80%;
+  margin: 2% auto;
+}
+#task_container .list {
+  margin: 2% 0;
+  padding: 10px 0;
+  background: linear-gradient(90deg, hsla(197, 14%, 57%, 1) 0%, hsla(192, 17%, 94%, 1) 100%);
+  border-radius: 10px;
+}
+#task_container .list h2,
+#task_container .list p {
+  padding: 10px;
+}
+#task_container .list button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 5px;
+}
+.edit {
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+.edit:hover {
+  background-color: rgb(47, 2, 47);
+}
+.delete {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+.delete:hover {
+  background-color: rgb(72, 3, 3);
+}
