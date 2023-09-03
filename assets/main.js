@@ -63,22 +63,25 @@ add_btn.addEventListener("click", (e) => {
 
 
     if (add_btn.innerHTML == "Add") {
+        if (title.value == "" || desp.value == "") {
+            alert("Please Input a value ")
+        } else {
+            var list = {
+                Title: title.value,
+                Description: desp.value,
+                id: uniqueid,
+            }
 
-        var list = {
-            Title: title.value,
-            Description: desp.value,
-            id: uniqueid,
+            todo.push(list);
+
+            uniqueid++
+
+            localStorage.setItem("Uniqueid", JSON.stringify(uniqueid))
+            localStorage.setItem("Tasks", JSON.stringify(todo))
+            showAllTasks()
+            title.value = ""
+            desp.value = ""
         }
-
-        todo.push(list);
-
-        uniqueid++
-
-        localStorage.setItem("Uniqueid", JSON.stringify(uniqueid))
-        localStorage.setItem("Tasks", JSON.stringify(todo))
-        showAllTasks()
-        title.value = ""
-        desp.value = ""
     }
 })
 
