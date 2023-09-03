@@ -35,54 +35,58 @@ function del(id) {
     })
 }
 
+
+var saveId = 0
+
 function edit(id) {
-    todo.forEach((value, index) => {
+    saveId = id
+    console.log(saveId)
+    todo.find((value, index) => {
         if (value.id == id) {
+            // console.log(value.Title, id)
             title.value = value.Title
             desp.value = value.Description
             add_btn.innerHTML = "SAVE"
-            add_btn.addEventListener("click", () => {
-                if (add_btn.innerHTML == "SAVE") {
-                    value.Title = title.value
-                    value.Description = desp.value
-                    showAllTasks()
-                    localStorage.removeItem("Tasks", JSON.stringify(todo))
-                    localStorage.setItem("Tasks", JSON.stringify(todo))
-                    add_btn.innerHTML = "Add"
-                    title.value = ""
-                    desp.value = ""
-                }
-            })
         }
     })
 }
 
 
 
-add_btn.addEventListener("click", (e) => {
 
-
-    if (add_btn.innerHTML == "Add") {
-        if (title.value == "" || desp.value == "") {
-            alert("Please Input a value ")
-        } else {
-            var list = {
-                Title: title.value,
-                Description: desp.value,
-                id: uniqueid,
+function add() {
+    if (add_btn.innerHTML == "SAVE") {
+        todo.find((value) => {
+            if (value.id == saveId) {
+                console.log(value.id, value)
+                value.Title = title.value
+                value.Description = desp.value
+                localStorage.removeItem("Tasks", JSON.stringify(todo))
+                localStorage.setItem("Tasks", JSON.stringify(todo))
+                showAllTasks()
+                add_btn.innerHTML = "Add"
+                title.value = ""
+                desp.value = ""
             }
-
-            todo.push(list);
-
-            uniqueid++
-
-            localStorage.setItem("Uniqueid", JSON.stringify(uniqueid))
-            localStorage.setItem("Tasks", JSON.stringify(todo))
-            showAllTasks()
-            title.value = ""
-            desp.value = ""
-        }
+        })
     }
-})
+    else if (add_btn.innerHTML == "Add") {
+        var list = {
+            Title: title.value,
+            Description: desp.value,
+            id: uniqueid,
+        }
+
+        todo.push(list);
+
+        uniqueid++
+
+        localStorage.setItem("Uniqueid", JSON.stringify(uniqueid))
+        localStorage.setItem("Tasks", JSON.stringify(todo))
+        showAllTasks()
+        title.value = ""
+        desp.value = ""
+    }
+}
 
 
