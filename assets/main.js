@@ -40,7 +40,6 @@ var saveId = 0
 
 function edit(id) {
     saveId = id
-    console.log(saveId)
     todo.find((value, index) => {
         if (value.id == id) {
             // console.log(value.Title, id)
@@ -58,7 +57,6 @@ function add() {
     if (add_btn.innerHTML == "SAVE") {
         todo.find((value) => {
             if (value.id == saveId) {
-                console.log(value.id, value)
                 value.Title = title.value
                 value.Description = desp.value
                 localStorage.removeItem("Tasks", JSON.stringify(todo))
