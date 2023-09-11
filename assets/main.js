@@ -5,7 +5,6 @@ var add_btn = document.querySelector("#add_btn")
 let task_cont = document.querySelector("#task_container")
 
 var todo = localStorage.getItem("Tasks") ? JSON.parse(localStorage.getItem("Tasks")) : [];
-
 let uniqueid = localStorage.getItem("Uniqueid") ? JSON.parse(localStorage.getItem("Uniqueid")) : 0
 
 showAllTasks()
